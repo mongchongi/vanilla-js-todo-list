@@ -23,7 +23,7 @@ const renderTodo = () => {
           <p class="todo-createdAt" style="${textDecoration}">${todo.createdAt}</p>
         </div>
         <div class="todo-actions">
-          <button type="button" class="todo-edit-btn">수정</button>
+          <button type="button" class="todo-edit-btn" data-id="${todo.id}">수정</button>
           <button type="button" class="todo-delete-btn">삭제</button>
         </div>
       </li>`;
@@ -66,6 +66,12 @@ const handleClick = (event) => {
 
   if (event.target.className === 'todo-checkbox') {
     todos[index].isDone = !todos[index].isDone;
+  } else if (event.target.className === 'todo-edit-btn') {
+    const newContent = prompt('할 일 수정');
+
+    if (newContent !== null) {
+      todos[index].content = newContent;
+    }
   }
 
   renderTodo();
