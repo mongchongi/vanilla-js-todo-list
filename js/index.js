@@ -4,10 +4,7 @@ const todoList = document.querySelector('.todo-list');
 const todoStatusFilter = document.querySelector('.todo-status-filter');
 const todoSortOrder = document.querySelector('.todo-sort-order');
 
-let todos = [
-  { id: '12kxkasl', content: 'lorem', createdAt: '2024. 11. 27. 12:23:44', isDone: false },
-  { id: 'kx1badop', content: 'dolor', createdAt: '2024. 11. 26. 12:13:44', isDone: true },
-];
+let todos = [];
 
 const renderTodo = (data = todos) => {
   todoList.innerHTML = '';
@@ -107,4 +104,3 @@ todoForm.addEventListener('submit', handleAddTodo);
 todoList.addEventListener('click', handleClick);
 todoStatusFilter.addEventListener('input', handleStatusFilterTodo);
 todoSortOrder.addEventListener('input', handleSortOrderTodo);
-renderTodo();
