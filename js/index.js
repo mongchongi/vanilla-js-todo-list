@@ -2,6 +2,7 @@ const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
 const todoStatusFilter = document.querySelector('.todo-status-filter');
+const todoSortOrder = document.querySelector('.todo-sort-order');
 
 let todos = [
   { id: '12kxkasl', content: 'lorem', createdAt: '2024. 11. 27. 12:23:44', isDone: false },
@@ -92,8 +93,18 @@ const handleStatusFilterTodo = (event) => {
   }
 };
 
+const handleSortOrderTodo = (event) => {
+  if (event.target.value === 'newest') {
+    renderTodo();
+  } else if (event.target.value === 'oldest') {
+    const oldestTodos = [...todos];
+    oldestTodos.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
+    renderTodo(oldestTodos);
+  }
+};
+
 todoForm.addEventListener('submit', handleAddTodo);
 todoList.addEventListener('click', handleClick);
 todoStatusFilter.addEventListener('input', handleStatusFilterTodo);
-
+todoSortOrder.addEventListener('input', handleSortOrderTodo);
 renderTodo();
