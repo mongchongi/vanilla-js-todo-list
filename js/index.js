@@ -24,7 +24,7 @@ const renderTodo = () => {
         </div>
         <div class="todo-actions">
           <button type="button" class="todo-edit-btn" data-id="${todo.id}">수정</button>
-          <button type="button" class="todo-delete-btn">삭제</button>
+          <button type="button" class="todo-delete-btn" data-id="${todo.id}">삭제</button>
         </div>
       </li>`;
 
@@ -72,6 +72,8 @@ const handleClick = (event) => {
     if (newContent !== null) {
       todos[index].content = newContent;
     }
+  } else if (event.target.className === 'todo-delete-btn') {
+    todos.splice(index, 1);
   }
 
   renderTodo();
