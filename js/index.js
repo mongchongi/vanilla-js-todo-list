@@ -1,16 +1,17 @@
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
+const todoStatusFilter = document.querySelector('.todo-status-filter');
 
-const todos = [
+let todos = [
   { id: '12kxkasl', content: 'lorem', createdAt: '2024. 11. 27. 12:23:44', isDone: false },
   { id: 'kx1badop', content: 'dolor', createdAt: '2024. 11. 26. 12:13:44', isDone: true },
 ];
 
-const renderTodo = () => {
+const renderTodo = (data = todos) => {
   todoList.innerHTML = '';
 
-  todos.forEach((todo) => {
+  data.forEach((todo) => {
     const borderColor = todo.isDone && 'border-color: #73EC8B';
     const textDecoration = todo.isDone && 'text-decoration: line-through';
 
@@ -79,6 +80,20 @@ const handleClick = (event) => {
   renderTodo();
 };
 
+const handleStatusFilterTodo = (event) => {
+  if (event.target.value === 'all') {
+    renderTodo();
+  } else if (event.target.value === 'in progress') {
+    const inProgress = todos.filter((todo) => todo.isDone === false);
+    renderTodo(inProgress);
+  } else if (event.target.value === 'done') {
+    const done = todos.filter((todo) => todo.isDone === true);
+    renderTodo(done);
+  }
+};
+
 todoForm.addEventListener('submit', handleAddTodo);
 todoList.addEventListener('click', handleClick);
+todoStatusFilter.addEventListener('input', handleStatusFilterTodo);
+
 renderTodo();
