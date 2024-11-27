@@ -43,3 +43,15 @@ header {
   outline: none;
 }
 /* ===== todo form ===== */
+
+/* ===== todo filters ===== */
+.todo-filters-area {
+  margin-top: 20px;
+}
+
+select {
+  width: 100px;
+  border: 2px solid black;
+  padding: 5px;
+}
+/* ===== todo filters ===== */
