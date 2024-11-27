@@ -55,3 +55,43 @@ select {
   padding: 5px;
 }
 /* ===== todo filters ===== */
+
+/* ===== todo list ===== */
+.todo-list-area {
+  margin: 30px 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #000;
+  padding: 10px;
+}
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-checkbox {
+  padding: 10px;
+  border: 5px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.todo-info {
+  width: 995px;
+  line-height: 30px;
+}
+
+.todo-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.todo-createdAt {
+  color: #00000099;
+}
+/* ===== todo list ===== */
