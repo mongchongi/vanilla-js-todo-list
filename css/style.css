@@ -4,6 +4,17 @@
   margin: auto;
 }
 
+button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 5px 16px;
+  cursor: pointer;
+}
+button:active {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 /* ===== header ===== */
 header {
   font-size: 2rem;
@@ -11,3 +22,24 @@ header {
   margin-top: 30px;
 }
 /* ===== header ===== */
+
+/* ===== todo form ===== */
+.todo-form-area {
+  margin-top: 20px;
+}
+
+.todo-form {
+  display: flex;
+  gap: 5px;
+}
+
+.todo-input {
+  width: 400px;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.todo-input:focus {
+  outline: none;
+}
+/* ===== todo form ===== */
